@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # coding: utf-8
 # Copyright (C) 2011 Lucas Alvares Gomes <lucasagomes@gmail.com>
 #
@@ -29,7 +29,7 @@ class Device(Interface):
     def _exec_func(self, func, args=()):
         try:
             return func(*args)
-        except dbus.exceptions.DBusException, e:
+        except dbus.exceptions.DBusException as e:
             e_name = e.get_dbus_name()
             if e_name == "org.freedesktop.PolicyKit.Error.NotAuthorized":
                 raise NotAuthorized(str(e))
@@ -281,7 +281,7 @@ class Device(Interface):
 
     @property
     def DeviceSize(self):
-        return long(self._get_property("DeviceSize"))
+        return int(self._get_property("DeviceSize"))
 
     @property
     def DeviceBlockSize(self):
@@ -388,11 +388,11 @@ class Device(Interface):
 
     @property
     def PartitionOffset(self):
-        return long(self._get_property("PartitionOffset"))
+        return int(self._get_property("PartitionOffset"))
 
     @property
     def PartitionSize(self):
-        return long(self._get_property("PartitionSize"))
+        return int(self._get_property("PartitionSize"))
 
     @property
     def PartitionTableScheme(self):
@@ -436,7 +436,7 @@ class Device(Interface):
 
     @property
     def DriveConnectionSpeed(self):
-        return long(self._get_property("DriveConnectionSpeed"))
+        return int(self._get_property("DriveConnectionSpeed"))
 
     @property
     def DriveMediaCompatibility(self):
@@ -507,7 +507,7 @@ class Device(Interface):
 
     @property
     def DriveAtaSmartTimeCollected(self):
-        return long(self._get_property("DriveAtaSmartTimeCollected"))
+        return int(self._get_property("DriveAtaSmartTimeCollected"))
 
     @property
     def DriveAtaSmartStatus(self):
@@ -602,7 +602,7 @@ class Device(Interface):
 
     @property
     def LinuxMdSyncSpeed(self):
-        return long(self._get_property("LinuxMdSyncSpeed"))
+        return int(self._get_property("LinuxMdSyncSpeed"))
 
     @property
     def LinuxLvm2PVUuid(self):
@@ -622,19 +622,19 @@ class Device(Interface):
 
     @property
     def LinuxLvm2PVGroupSize(self):
-        return long(self._get_property("LinuxLvm2PVGroupSize"))
+        return int(self._get_property("LinuxLvm2PVGroupSize"))
 
     @property
     def LinuxLvm2PVGroupUnallocatedSize(self):
-        return long(self._get_property("LinuxLvm2PVGroupUnallocatedSize"))
+        return int(self._get_property("LinuxLvm2PVGroupUnallocatedSize"))
 
     @property
     def LinuxLvm2PVGroupSequenceNumber(self):
-        return long(self._get_property("LinuxLvm2PVGroupSequenceNumber"))
+        return int(self._get_property("LinuxLvm2PVGroupSequenceNumber"))
 
     @property
     def LinuxLvm2PVGroupExtentSize(self):
-        return long(self._get_property("LinuxLvm2PVGroupExtentSize"))
+        return int(self._get_property("LinuxLvm2PVGroupExtentSize"))
 
     @property
     def LinuxLvm2PVGroupPhysicalVolumes(self):
